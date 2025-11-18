@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Variables */
+  --navy: #0A1931;
+  --electric: #00A8FF;
+  --cyan: #00D4FF;
+  --silver: #E8ECEF;
+  --charcoal: #1A1A1A;
+  --white: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: white;
+    color: var(--navy);
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poetsen), system-ui, sans-serif;
+    font-weight: 400;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-mobile {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--electric) 0%, var(--cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-custom {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--electric) 100%);
+  }
+
+  /* Custom color classes */
+  .bg-navy { background-color: var(--navy); }
+  .bg-electric { background-color: var(--electric); }
+  .bg-cyan { background-color: var(--cyan); }
+  .bg-silver { background-color: var(--silver); }
+  .bg-charcoal { background-color: var(--charcoal); }
+  
+  .text-navy { color: var(--navy); }
+  .text-electric { color: var(--electric); }
+  .text-cyan { color: var(--cyan); }
+  .text-silver { color: var(--silver); }
+  .text-charcoal { color: var(--charcoal); }
+  .text-white { color: var(--white); }
+  
+  .border-electric { border-color: var(--electric); }
+  .border-cyan { border-color: var(--cyan); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-heading {
+    font-family: var(--font-poetsen), system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-subheading {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+  
+  .font-body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: rgba(0, 168, 255, 0.3);
+}
+
+/* Enhanced focus styles for accessibility */
+a:focus-visible, 
+button:focus-visible {
+  outline: 2px solid var(--electric);
+  outline-offset: 2px;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
 }
