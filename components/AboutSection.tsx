@@ -70,7 +70,7 @@ export default function AboutSection() {
               <div className="absolute -inset-4 bg-linear-to-br from-[#00A8FF] to-[#00D4FF] rounded-3xl opacity-20 group-hover:opacity-30 transition-all duration-500 blur-xl"></div>
               <div className="relative bg-white rounded-2xl p-4 shadow-2xl border border-silver/50">
                 <Image
-                  src="/anna.jpg"
+                  src="/Anna.jpg"
                   alt="Anna Holland - Founding Attorney"
                   width={500}
                   height={600}
