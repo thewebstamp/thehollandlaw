@@ -98,7 +98,7 @@ export default function HeroSection() {
       {/* Animated Background */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-12"
+        className="absolute inset-0 w-full h-full opacity-5"
       />
 
       {/* Gradient Overlays */}
@@ -160,7 +160,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-[19px] text-silver leading-relaxed mb-8 max-w-2xl"
+              className="text-[19px] text-white leading-relaxed mb-8 max-w-2xl"
             >
               For criminal defense and family law matters, rest easy knowing you have an experienced attorney who will fight for your rights and guide you with compassion.
             </motion.p>
